@@ -12,9 +12,6 @@ import javax.inject.Inject;
 
 public abstract class BaseViewModel<T> extends ViewModel {
 
-    @Inject
-    protected ApiService api;
-
     protected MutableLiveData<T> data;
 
     private ExecutorService service = Executors.newSingleThreadExecutor();
