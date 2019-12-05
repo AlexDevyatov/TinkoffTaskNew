@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tinkoff.R;
 import com.example.tinkoff.model.News;
 
+import java.util.Collections;
 import java.util.List;
 
 public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFeedViewHolder> {
@@ -45,6 +46,8 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 
     public void updateNewsList(List<News> newsList) {
         this.newsList = newsList;
+        Collections.sort(newsList);
+        Collections.reverse(newsList);
         notifyDataSetChanged();
     }
 

@@ -2,7 +2,7 @@ package com.example.tinkoff.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class News {
+public class News implements Comparable<News> {
 
     @SerializedName("id")
     private Integer id;
@@ -46,5 +46,10 @@ public class News {
 
     public void setPublicationDate(PublicationDate publicationDate) {
         this.publicationDate = publicationDate;
+    }
+
+    @Override
+    public int compareTo(News news) {
+        return publicationDate.compareTo(news.getPublicationDate());
     }
 }
