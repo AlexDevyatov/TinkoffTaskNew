@@ -2,21 +2,10 @@ package com.example.tinkoff.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class NewsText {
-
-    @SerializedName("resultCode")
-    private String resultCode;
+public class Payload {
 
     @SerializedName("content")
     private String content;
-
-    public String getResultCode() {
-        return resultCode;
-    }
-
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
-    }
 
     public String getContent() {
         return content;

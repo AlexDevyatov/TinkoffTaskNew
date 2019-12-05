@@ -1,7 +1,6 @@
 package com.example.tinkoff.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,8 +13,8 @@ import com.example.tinkoff.adapter.NewsFeedAdapter;
 import com.example.tinkoff.di.AppComponent;
 import com.example.tinkoff.model.News;
 import com.example.tinkoff.model.NewsFeed;
-import com.example.tinkoff.viewmodel.NewsViewModel;
-import com.example.tinkoff.viewmodel.factory.NewsViewModelFactory;
+import com.example.tinkoff.viewmodel.NewsListViewModel;
+import com.example.tinkoff.viewmodel.factory.NewsListViewModelFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private NewsFeedAdapter adapter;
-    private NewsViewModel newsViewModel;
+    private NewsListViewModel newsListViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void createViewModel() {
         AppComponent appComponent = ((App)getApplication()).getAppComponent();
-        newsViewModel = ViewModelProviders.of(this, new NewsViewModelFactory(appComponent)).get(NewsViewModel.class);
-        newsViewModel.request();
-        newsViewModel.getData().observe(this, this::updateNews);
+        newsListViewModel = ViewModelProviders.of(this, new NewsListViewModelFactory(appComponent)).get(NewsListViewModel.class);
+        newsListViewModel.request();
+        newsListViewModel.getData().observe(this, this::updateNews);
     }
 
     private void updateNews(NewsFeed newsFeed) {

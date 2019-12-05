@@ -1,6 +1,7 @@
 package com.example.tinkoff.di;
 
-import com.example.tinkoff.viewmodel.NewsViewModel;
+import com.example.tinkoff.viewmodel.NewsContentViewModel;
+import com.example.tinkoff.viewmodel.NewsListViewModel;
 
 import javax.inject.Singleton;
 
@@ -10,5 +11,7 @@ import dagger.Component;
 @Component(modules = {NetModule.class})
 public interface AppComponent {
 
-    void inject(NewsViewModel newsViewModel);
+    void inject(NewsListViewModel newsListViewModel);
+
+    void inject(NewsContentViewModel newsContentViewModel);
 }

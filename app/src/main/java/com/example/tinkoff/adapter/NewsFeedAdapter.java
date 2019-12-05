@@ -1,5 +1,7 @@
 package com.example.tinkoff.adapter;
 
+import android.content.Intent;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tinkoff.R;
 import com.example.tinkoff.model.News;
+import com.example.tinkoff.view.NewsContentActivity;
 
 import java.util.Collections;
 import java.util.List;
@@ -54,14 +57,21 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
     public static class NewsFeedViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tvNews;
+        private News news;
 
         public NewsFeedViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvNews = itemView.findViewById(R.id.tvNews);
+            tvNews = itemView.findViewById(R.id.tvNewsName);
+            itemView.setOnClickListener(view -> {
+                Intent intent = new Intent(itemView.getContext(), NewsContentActivity.class);
+                intent.putExtra("newsId", news.getId());
+                itemView.getContext().startActivity(intent);
+            });
         }
 
         public void bind(News news) {
-            tvNews.setText(news.getText());
+            this.news = news;
+            tvNews.setText(Html.fromHtml(news.getText()));
         }
     }
 }

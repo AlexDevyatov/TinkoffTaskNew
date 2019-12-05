@@ -5,21 +5,21 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.tinkoff.di.AppComponent;
-import com.example.tinkoff.viewmodel.NewsViewModel;
+import com.example.tinkoff.viewmodel.NewsListViewModel;
 
-public class NewsViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+public class NewsListViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final AppComponent appComponent;
 
-    public NewsViewModelFactory(AppComponent appComponent) {
+    public NewsListViewModelFactory(AppComponent appComponent) {
         this.appComponent = appComponent;
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        if (modelClass == NewsViewModel.class) {
-            return (T) new NewsViewModel(appComponent);
+        if (modelClass == NewsListViewModel.class) {
+            return (T) new NewsListViewModel(appComponent);
         }
         return null;
     }

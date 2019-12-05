@@ -1,7 +1,7 @@
 package com.example.tinkoff.service;
 
 import com.example.tinkoff.model.NewsFeed;
-import com.example.tinkoff.model.NewsText;
+import com.example.tinkoff.model.NewsContent;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;
@@ -13,5 +13,5 @@ public interface ApiService {
     Single<NewsFeed> getNewsFeed();
 
     @GET("news_content")
-    Single<NewsText> getContent(@Query("id") int newsId);
+    Single<NewsContent> getContent(@Query("id") int newsId);
 }

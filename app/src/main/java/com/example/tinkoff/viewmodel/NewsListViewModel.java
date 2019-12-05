@@ -13,12 +13,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class NewsViewModel extends BaseViewModel<NewsFeed> {
+public class NewsListViewModel extends BaseViewModel<NewsFeed> {
 
     @Inject
     Repository repository;
 
-    public NewsViewModel(AppComponent appComponent) {
+    public NewsListViewModel(AppComponent appComponent) {
         appComponent.inject(this);
     }
 
